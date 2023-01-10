@@ -1,6 +1,15 @@
-﻿namespace CosminsPieShop
+﻿using CosminsPieShop.Models;
+
+namespace CosminsPieShop
 {
-    public class MockCategoryRepository
+    public class MockCategoryRepository : ICategoryRepository
     {
+        IEnumerable<Category> ICategoryRepository.AllCategories =>
+            new List<Category>
+            {
+                new Category{CategoryId = 1, CategoryName = "Fruit pies", Description = "All - fruity pies"},
+                new Category{CategoryId = 2, CategoryName = "Cheese cakes", Description = "Cheesy all the way"},
+                new Category{CategoryId = 3, CategoryName = "Seasonal pies", Description = "Seasonal pies"},
+            };
     }
 }
