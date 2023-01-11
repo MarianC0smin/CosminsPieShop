@@ -1,6 +1,4 @@
-﻿using CosminsPieShop.Models;
-
-namespace CosminsPieShop
+﻿namespace CosminsPieShop.Models
 {
     public class MockCategoryRepository : ICategoryRepository
     {
