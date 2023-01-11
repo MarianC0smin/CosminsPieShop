@@ -1,4 +1,3 @@
-using CosminsPieShop;
 using CosminsPieShop.Models;
 
 var builder = WebApplication.CreateBuilder(args);
