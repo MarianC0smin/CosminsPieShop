@@ -1,4 +1,5 @@
 ﻿using CosminsPieShop.Models;
+using CosminsPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CosminsPieShop.Controllers
@@ -15,8 +16,12 @@ namespace CosminsPieShop.Controllers
 
         public IActionResult List() 
         {
-            ViewBag.CurrentCategory = "Cheese cakes";
-            return View(_pieRepository.AllPies);
+            //ViewBag.CurrentCategory = "Cheese cakes";
+            //return View(_pieRepository.AllPies);
+            PieListViewModel pieListViewModel = new PieListViewModel
+                (_pieRepository.AllPies, "Cheese cakes");
+
+            return View(pieListViewModel);
         }
     }
 }
