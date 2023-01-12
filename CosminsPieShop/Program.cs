@@ -1,10 +1,16 @@
 using CosminsPieShop.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
-builder.Services.AddScoped<IPieRepository, MockPieRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IPieRepository, PieRepository>();
+
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<CosminsPieShopDbContext>(options => {
+    options.UseSqlServer(
+        builder.Configuration["ConnectionStrings:CosminsPieShopDbContextConnection"]);
+});
 
 var app = builder.Build();
 
