@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CosminsPieShop", "CosminsPieShop\CosminsPieShop.csproj", "{9B181E0D-5915-4AFC-A83E-155DFA321F37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosminsPieShopTests", "CosminsPieShopTests\CosminsPieShopTests.csproj", "{16DD4439-4FF3-4A3D-A032-E914B573D077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9B181E0D-5915-4AFC-A83E-155DFA321F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B181E0D-5915-4AFC-A83E-155DFA321F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B181E0D-5915-4AFC-A83E-155DFA321F37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16DD4439-4FF3-4A3D-A032-E914B573D077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16DD4439-4FF3-4A3D-A032-E914B573D077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16DD4439-4FF3-4A3D-A032-E914B573D077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16DD4439-4FF3-4A3D-A032-E914B573D077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
