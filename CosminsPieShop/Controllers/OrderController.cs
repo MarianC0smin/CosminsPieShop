@@ -14,7 +14,7 @@ namespace CosminsPieShop.Controllers
             _shoppingCart = shoppingCart;
         }
 
-        public IActionResult Checkout()
+        public IActionResult Checkout() // Called when a GET request is received
         {
             return View();
         }

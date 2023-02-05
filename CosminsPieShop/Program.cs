@@ -13,6 +13,7 @@ builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.AddDbContext<CosminsPieShopDbContext>(options => {
     options.UseSqlServer(
         builder.Configuration["ConnectionStrings:CosminsPieShopDbContextConnection"]);
@@ -30,6 +31,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapDefaultControllerRoute();//"{Controller=Home}/{action=Index}/{id?}"
+app.MapRazorPages();
+
 
 //app.MapControllerRoute(
 //    name: "default",

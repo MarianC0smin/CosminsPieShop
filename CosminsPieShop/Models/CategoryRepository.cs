@@ -2,13 +2,13 @@
 {
     public class CategoryRepository : ICategoryRepository
     {
-        private readonly CosminsPieShopDbContext _bethanysPieShopDbContext;
+        private readonly CosminsPieShopDbContext _cosminsPieShopDbContext;
 
         public CategoryRepository(CosminsPieShopDbContext bethanysPieShopDbContext)
         {
-            _bethanysPieShopDbContext = bethanysPieShopDbContext;
+            _cosminsPieShopDbContext = bethanysPieShopDbContext;
         }
 
-        public IEnumerable<Category> AllCategories => _bethanysPieShopDbContext.Categories.OrderBy(p => p.CategoryName);
+        public IEnumerable<Category> AllCategories => _cosminsPieShopDbContext.Categories.OrderBy(p => p.CategoryName);
     }
 }

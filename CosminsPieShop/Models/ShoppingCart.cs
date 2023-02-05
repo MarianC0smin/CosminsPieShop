@@ -4,7 +4,7 @@ namespace CosminsPieShop.Models
 {
     public class ShoppingCart : IShoppingCart
     {
-        private readonly CosminsPieShopDbContext _bethanysPieShopDbContext;
+        private readonly CosminsPieShopDbContext _cosminsPieShopDbContext;
 
         public string? ShoppingCartId { get; set; }
 
@@ -12,7 +12,7 @@ namespace CosminsPieShop.Models
 
         private ShoppingCart(CosminsPieShopDbContext CosminsPieShopDbContext)
         {
-            _bethanysPieShopDbContext = CosminsPieShopDbContext;
+            _cosminsPieShopDbContext = CosminsPieShopDbContext;
         }
 
         public static ShoppingCart GetCart(IServiceProvider services)
@@ -31,7 +31,7 @@ namespace CosminsPieShop.Models
         public void AddToCart(Pie pie)
         {
             var shoppingCartItem =
-                    _bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
+                    _cosminsPieShopDbContext.ShoppingCartItems.SingleOrDefault(
                         s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
@@ -43,19 +43,19 @@ namespace CosminsPieShop.Models
                     Amount = 1
                 };
 
-                _bethanysPieShopDbContext.ShoppingCartItems.Add(shoppingCartItem);
+                _cosminsPieShopDbContext.ShoppingCartItems.Add(shoppingCartItem);
             }
             else
             {
                 shoppingCartItem.Amount++;
             }
-            _bethanysPieShopDbContext.SaveChanges();
+            _cosminsPieShopDbContext.SaveChanges();
         }
 
         public int RemoveFromCart(Pie pie)
         {
             var shoppingCartItem =
-                    _bethanysPieShopDbContext.ShoppingCartItems.SingleOrDefault(
+                    _cosminsPieShopDbContext.ShoppingCartItems.SingleOrDefault(
                         s => s.Pie.PieId == pie.PieId && s.ShoppingCartId == ShoppingCartId);
 
             var localAmount = 0;
@@ -69,11 +69,11 @@ namespace CosminsPieShop.Models
                 }
                 else
                 {
-                    _bethanysPieShopDbContext.ShoppingCartItems.Remove(shoppingCartItem);
+                    _cosminsPieShopDbContext.ShoppingCartItems.Remove(shoppingCartItem);
                 }
             }
 
-            _bethanysPieShopDbContext.SaveChanges();
+            _cosminsPieShopDbContext.SaveChanges();
 
             return localAmount;
         }
@@ -81,25 +81,25 @@ namespace CosminsPieShop.Models
         public List<ShoppingCartItem> GetShoppingCartItems()
         {
             return ShoppingCartItems ??=
-                       _bethanysPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
+                       _cosminsPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
                            .Include(s => s.Pie)
                            .ToList();
         }
 
         public void ClearCart()
         {
-            var cartItems = _bethanysPieShopDbContext
+            var cartItems = _cosminsPieShopDbContext
                 .ShoppingCartItems
                 .Where(cart => cart.ShoppingCartId == ShoppingCartId);
 
-            _bethanysPieShopDbContext.ShoppingCartItems.RemoveRange(cartItems);
+            _cosminsPieShopDbContext.ShoppingCartItems.RemoveRange(cartItems);
 
-            _bethanysPieShopDbContext.SaveChanges();
+            _cosminsPieShopDbContext.SaveChanges();
         }
 
         public decimal GetShoppingCartTotal()
         {
-            var total = _bethanysPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
+            var total = _cosminsPieShopDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
                 .Select(c => c.Pie.Price * c.Amount).Sum();
             return total;
         }

@@ -62,5 +62,5 @@ namespace CosminsPieShop.Models
 
         [BindNever]
         public DateTime OrderPlaced { get; set; }
-    } 
+    }  
 }
