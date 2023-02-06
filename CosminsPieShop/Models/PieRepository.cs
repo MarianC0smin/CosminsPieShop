@@ -31,5 +31,10 @@ namespace CosminsPieShop.Models
         {
             return _cosminsPieShopDbContext.Pies.FirstOrDefault(p => p.PieId == pieId);
         }
+
+        public IEnumerable<Pie> SearchPies(string searchQuery)
+        {
+            return _cosminsPieShopDbContext.Pies.Where(p =>p.Name.Contains(searchQuery));
+        }
     }
 }

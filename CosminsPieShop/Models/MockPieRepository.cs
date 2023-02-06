@@ -59,6 +59,12 @@
                 return AllPies.Where(p => p.IsPieOfTheWeek);
             }
         }
+
+        public IEnumerable<Pie> SearchPies(string searchQuery)
+        {
+            return AllPies.Where(p => p.Name.Contains(searchQuery));
+        }
+
         Pie? IPieRepository.GetPieById(int pieId) => AllPies.FirstOrDefault(p => p.PieId == pieId);
     }
 }
