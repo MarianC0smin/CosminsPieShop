@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace CosminsPieShop.Models
 {
-    public class CosminsPieShopDbContext: DbContext
+    public class CosminsPieShopDbContext: IdentityDbContext
     {
         public CosminsPieShopDbContext(DbContextOptions<CosminsPieShopDbContext> options) : base(options)
         {
